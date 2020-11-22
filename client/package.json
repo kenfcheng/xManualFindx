@@ -9,11 +9,12 @@
     "axios": "^0.21.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.5.3",
-    "firebase": "^8.0.2",
+    "firebase": "^8.1.1",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
+    "react-dotenv": "^0.1.2",
     "react-dropzone": "^11.2.4",
     "react-hooks": "^1.0.1",
     "react-scripts": "4.0.0",
@@ -22,9 +23,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": " react-scripts build",
+    "test": "react- react-scripts test",
+    "eject": "scripts eject"
   },
   "eslintConfig": {
     "extends": [
