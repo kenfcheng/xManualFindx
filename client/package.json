@@ -17,13 +17,17 @@
     "react-dotenv": "^0.1.2",
     "react-dropzone": "^11.2.4",
     "react-hooks": "^1.0.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "redux": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": " react-scripts build",
+    "build-dev": "dotenv -e .env.development react-app-rewired build",
+    "build-prod": "dotenv -e .env.production react-app-rewired build",
+    "build": "  react-scripts build",
     "test": "react- react-scripts test",
     "eject": "scripts eject"
   },
