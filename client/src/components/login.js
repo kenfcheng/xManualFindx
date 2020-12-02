@@ -1,77 +1,55 @@
-import React, { useState } from "react";
-import { Link } from "@reach/router";
+import React, { useRef, useState } from "react";
+import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/authContext";
 
-const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  const signInWithEmailAndPasswordHandler = (event, email, password) => {
-    event.preventDefault();
-  };
+export default function Login() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-  const onChangeHandler = (event) => {
-    const { name, value } = event.currentTarget;
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-    if (name === "userEmail") {
-      setEmail(value);
-    } else if (name === "userPassword") {
-      setPassword(value);
+    try {
+      setError("");
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/");
+    } catch {
+      setError("Failed to Log In");
     }
-  };
+    setLoading(false);
+  }
 
   return (
-    <div className="mt-8">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
-        {error !== null && (
-          <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
-            {error}
-          </div>
-        )}
-        <form className="">
-          <label htmlFor="userEmail" className="block">
-            Email:
-          </label>
-          <input
-            type="email"
-            className="my-1 p-1 w-full"
-            name="userEmail"
-            value={email}
-            placeholder="Email"
-            id="userEmail"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <label htmlFor="userPassword" className="block">
-            Password:
-          </label>
-          <input
-            type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userPassword"
-            value={password}
-            placeholder="Your Password"
-            id="userPassword"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <button
-            className="bg-blue-400 hover:bg-blue-500 w-full py-2 text-white"
-            onClick={(event) => {
-              signInWithEmailAndPasswordHandler(event, email, password);
-            }}
-          >
-            Sign in
-          </button>
-        </form>
-        <p className="text-center my-3">or</p>
+    <>
+      <Card>
+        <Card.Body>
+          <Form onSubmit={handleSubmit}>
+            <h2 className="text-center mb-4">Log In</h2>
+            {error && <Alert variant="danger">{error}</Alert>}
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
 
-        <p className="text-center my-3">
-          Don't have an account?{" "}
-          <Link to="signup" className="text-blue-500 hover:text-blue-600">
-            Sign up here
-          </Link>{" "}
-        </p>
+            <Button disabled={loading} className="w-100" type="submit">
+              Log In
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Need an account? <Link to="/signup">Sign Up</Link>
       </div>
-    </div>
+    </>
   );
-};
-export default SignIn;
+}
