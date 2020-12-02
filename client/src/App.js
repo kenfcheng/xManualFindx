@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 import AuthProvider from "./contexts/authContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Dashboard from "./components/dasboard";
-
+import PrivateRoute from "./components/privateRoute";
 function App() {
   return (
     <AuthProvider>
@@ -16,7 +16,7 @@ function App() {
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Router>
             <Switch>
-              <Route exact path="/" component={Dashboard} />
+              <PrivateRoute exact path="/" component={Dashboard} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
             </Switch>
