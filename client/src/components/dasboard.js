@@ -25,8 +25,8 @@ export default function Dashboard() {
             Welcome!<br></br>
             <strong>{currentUser.email}</strong>
           </h2>
-          <Link to="/edit-profile" className="btn btn-primary w-100 mt-3">
-            Edit Profile
+          <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
+            Update Profile
           </Link>
           {error && <Alert variant="danger">{error}</Alert>}
         </Card.Body>
