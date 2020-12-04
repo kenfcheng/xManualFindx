@@ -56,5 +56,5 @@ export function AuthProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
+// AuthProvider passes the values into the other components in App.js.
 export default AuthProvider;
