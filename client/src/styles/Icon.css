@@ -1,0 +1,23 @@
+.icon-position {
+  position: relative;
+  left: 810px;
+  bottom: 75px;
+  width: 300px;
+  height: 350px;
+  align-content: center;
+}
+
+.nav-bar {
+  background-color: #8cbef7;
+  margin-bottom: 100px;
+}
+
+.header-position {
+  position: relative;
+  left: 800px;
+  right: 10px;
+  color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 60px;
+}
