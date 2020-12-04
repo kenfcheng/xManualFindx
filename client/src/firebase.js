@@ -1,8 +1,8 @@
 import firebase from "firebase/app";
-
 import "firebase/auth";
 import "firebase/firestore";
 
+// This is supposed to pull from .env, but for some reason it will not.  Temporarily am directly plugging API Key.
 require("dotenv").config();
 
 const firebaseConfig = firebase.initializeApp({
