@@ -1,0 +1,14 @@
+.login-card {
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 150px;
+  width: 500px;
+}
+
+.sign-up {
+  position: absolute;
+  bottom: 125px;
+
+  width: 100;
+  margin-top: 2;
+}

@@ -1,19 +1,19 @@
 .icon-position {
-  position: relative;
-  left: 810px;
+  position: inherit;
+  left: 100rem;
   bottom: 75px;
   width: 300px;
   height: 350px;
-  align-content: center;
 }
 
 .nav-bar {
+  flex-wrap: wrap;
   background-color: #8cbef7;
   margin-bottom: 100px;
 }
 
 .header-position {
-  position: relative;
+  position: absolute;
   left: 800px;
   right: 10px;
   color: white;
