@@ -30,6 +30,9 @@ export default function Dashboard() {
             Update Profile
           </Link>
           {error && <Alert variant="danger">{error}</Alert>}
+          <Link to="/Upload" className="btn btn-primary w-100 mt-3">
+            Upload File
+          </Link>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
