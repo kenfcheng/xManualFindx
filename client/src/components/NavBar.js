@@ -12,7 +12,7 @@ export default function NavBar() {
      "
       >
         <Parallax>
-          <Background>
+          <Background className="center">
             <img src={background} alt="background" />
           </Background>
           <h1 className="header-position">Manual Find</h1>

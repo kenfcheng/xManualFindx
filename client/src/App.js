@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import ForgotPassword from "./components/ForgotPassword";
 import UpdateProfile from "./components/UpdateProfile";
+import Upload from "./components/Upload";
 import Footer from "./components/Footer";
 // Contexts
 import AuthProvider from "./contexts/authContext";
@@ -28,10 +29,14 @@ function App() {
             <AuthProvider>
               <Switch>
                 <PrivateRoute exact path="/" component={Dashboard} />
-                <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                <PrivateRoute
+                  path="/update-profile"
+                  component={UpdateProfile}
+                />
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
                 <Route path="/forgot-password" component={ForgotPassword} />
+                <Route path="/upload" component={Upload} />
               </Switch>
             </AuthProvider>
           </Router>

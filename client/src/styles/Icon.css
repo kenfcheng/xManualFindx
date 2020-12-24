@@ -1,5 +1,5 @@
 .icon-position {
-  position: inherit;
+  position: relative;
   left: 100rem;
   bottom: 75px;
   width: 300px;
